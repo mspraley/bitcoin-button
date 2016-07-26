@@ -1,0 +1,81 @@
+body.preload * {
+animation-duration: 0s !important;
+-webkit-animation-duration: 0s !important;
+} 
+
+.bitcoin-button {
+    padding: 20px;
+    border: 2px solid #cccccc;
+    border-radius: 30px;
+    transition: all linear 1s;
+    text-align: center;
+    width: 200px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    font-family: Arial;
+}
+
+.bitcoin-button .background {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transition: all linear 0.2s;
+    margin-top: -15px;
+    background: #ef9b35;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.bitcoin-button:hover .background {
+    width: 150%;
+    height: 150%;
+    top: 0px;
+    left: 0px;
+}
+
+@-webkit-keyframes out {
+    0%   {left: 0px;}
+    40%  {left: 53%; transform: rotate(360deg);}
+    45%  {left: 50%; margin-left: -15px; transform: rotate(360deg);}
+    50%  {left: 47%; transform: rotate(360deg);}
+    100%  {left: 50%; margin-left: -15px; transform: rotate(360deg);}
+}
+
+@-webkit-keyframes in {
+    from  {left: 53%; margin-left: -15px;  transform: rotate(0deg);}
+    to  {left: 10px; transform: rotate(0deg);}
+}
+
+.bitcoin-button .icon {
+    background: url('bitcoin.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -15px;
+    z-index: 15;
+    animation: in 0.3s alternate;
+    -webkit-animation: in 0.3s alternate;
+}
+
+.bitcoin-button:hover .icon {
+    animation: out 0.7s ease-out;
+    -webkit-animation: out 0.7s ease-out;
+    animation-fill-mode: forwards;
+
+}
+
+.bitcoin-button .label {
+    transition: all ease-out 0.3s;
+    z-index: 5;
+}
+
+.bitcoin-button:hover .label{
+    transform: translate(-10%,0) scale(0.8);
+}
